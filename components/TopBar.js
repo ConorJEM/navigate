@@ -6,9 +6,9 @@ const TopBar = () => {
         const navigation = useNavigation();
         return (
             <View style={styles.container}>
-              <FontAwesome5 name="arrow-left" size={27} color="#4b4b4b" onPress={() => navigation.navigate('Home')}/>
-              <FontAwesome5 name="fire" size={27} color="#F06795"/>
-              <FontAwesome name="user" size={27} color="#4b4b4b"/>
+              <FontAwesome5 name="arrow-left" size={35} color="#4b4b4b" onPress={() => navigation.navigate('Home')}/>
+              <FontAwesome5 name="fire" size={35} color="#F06795"/>
+              <FontAwesome name="star" size={35} color="#FFBF00"/>
             </View>
             
           );
@@ -17,7 +17,7 @@ const TopBar = () => {
 
 const styles = StyleSheet.create({
     container: {
-      height: 60,
+      height: 70,
       flexDirection: 'row',
       justifyContent: 'space-around',
       padding: 15,

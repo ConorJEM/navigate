@@ -1,10 +1,10 @@
 import React,{useState} from 'react';
-import { Button, View, Text,ImageBackground,StyleSheet } from 'react-native';
+import { Button, View, Text,ImageBackground,StyleSheet,TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import DetailsScreen from './DetailsScreen';
 import { useNavigation } from '@react-navigation/native';
-const image = { uri: "https://images.pexels.com/photos/1251196/pexels-photo-1251196.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" };
+const image = { img: require('../assets/img/monica.jpg') };
 import AuthModal from '../components/AuthModal';
 
 const HomeScreen = () => {
@@ -19,13 +19,17 @@ const HomeScreen = () => {
 
         return (
             <View style={styles.container}>
-                <ImageBackground source={image} resizeMode="cover" style={styles.image}>
+                <ImageBackground source={require('../assets/background-main-2.jpg')} resizeMode="cover" style={styles.image}>
                 <Text style={styles.text}>Meal Time</Text>
-                <Button
-                    title="Sign In"
-                    //onPress={() => navigation.navigate('Details')}
-                    onPress={handleClick}
-                />
+                  {!showModal &&(
+                  <View style={{alignItems: 'center'}}>
+                  <TouchableOpacity onPress={handleClick} style={styles.button}>
+                    <Text style={styles.buttonText}>Sign in</Text>
+                  </TouchableOpacity>
+                  </View>
+                  )}
+                
+                  
                 {showModal && (<AuthModal setShowModal={setShowModal}/>)}
                 </ImageBackground>
             </View>
@@ -48,6 +52,22 @@ const styles = StyleSheet.create({
       textAlign: "center",
       paddingTop: 0
       //backgroundColor: "#000000c0"
+    },
+    subtext: {
+      color: "white",
+      fontSize: 60,
+      lineHeight: 84,
+      fontWeight: "bold",
+      textAlign: "center",
+      paddingTop: 0
+    },
+    button: {
+      backgroundColor: 'grey',
+      padding: 20,
+      borderRadius: 10
+    },
+    buttonText: {
+      color: "white"
     }
   });
 
